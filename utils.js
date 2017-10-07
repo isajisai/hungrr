@@ -31,6 +31,7 @@ function distance(p1, p2) {
 	return Math.sqrt(x_comp, y_comp);
 }
 
+
 // Misc.
 
 function zip(arrays) {
@@ -41,16 +42,15 @@ function zip(arrays) {
     });
 }
 
-function map_and_filter(arrays, f) {
-	/* maps and filters arrays. */
-
-        var to_return = [];
-        for (int i = 0; i < arrays.length; i++) {
-                if (f(arrays[i])) {
-                        to_return.push(arrays[i]);
-                }
-        }
-        return to_return;
+function map_and_filter(arrays, map_f, filter_f) {
+	var to_return = [];
+	for (int i = 0; i < arrays.length; i++) {
+		var x = map_f(arrays[i]);
+		if (filter_f(x)) {
+			to_return.push(map_f(x));
+		}
+	}
+	return to_return;
 }
 
 function enumerate(s, start=0) {
@@ -61,5 +61,5 @@ function enumerate(s, start=0) {
 	for (var i = start; i < s.length; i++) {
 		to_zip.push(i);
 	}
-	return zip(to_zip, s)
+	return zip(to_zip, s);
 }
