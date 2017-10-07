@@ -42,10 +42,27 @@ function zip(arrays) {
     });
 }
 
-function map_and_filter(arrays, map_f, filter_f) {
+function min_with_f(array, key_f) {
+	/* return element that key_f returns the minimum value. */
+
+	var minimum = key_fn(s[0]);
+	var value_of_minimum = s[0];
+	for (var i = 1; i < s.length; i++) {
+		var curr = key_fn(s[i]);
+		if (curr < minimum) {
+			minimum = curr;
+			value_of_minimum = s[i];
+		}
+	}
+	return value_of_minimum;
+}
+
+function map_and_filter(array, map_f, filter_f) {
+	/* applies map_f to each array element and keeps it if it passes filter_f. */
+
 	var to_return = [];
-	for (int i = 0; i < arrays.length; i++) {
-		var x = map_f(arrays[i]);
+	for (int i = 0; i < array.length; i++) {
+		var x = map_f(array[i]);
 		if (filter_f(x)) {
 			to_return.push(map_f(x));
 		}
