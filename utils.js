@@ -8,7 +8,7 @@
 function mean(s) {
 	/* aritmetic mean of the elements of s. */
 
-	var sum = s.reduce(funcation(a, b) { return a + b; }, 0);
+	var sum = s.reduce(function(a, b) { return a + b; }, 0);
 	return sum / s.length;
 }
 
@@ -22,5 +22,11 @@ function sample(s, k) {
 		to_return.push(s.splice(j, 1)[0]);
 	}
 	return to_return.slice(0, k);
+}
+
+function zip(arrays) {
+    return arrays[0].map(function(_,i){
+        return arrays.map(function(array){return array[i]})
+    });
 }
 
