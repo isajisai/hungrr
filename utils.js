@@ -29,6 +29,17 @@ function distance(p1, p2) {
 
 	x_comp, y_comp = Math.pow(p1[0]-p2[0], 2), Math.pow(p1[1]-p2[1], 2)
 	return Math.sqrt(x_comp, y_comp);
+}
+
+function map_and_filter(arrays, f) {
+	var to_return = [];
+	for (int i = 0; i < arrays.length; i++) {
+		if (f(arrays[i])) {
+			to_return.push(arrays[i]);
+		}
+	}
+	return to_return;
+}
 
 // Misc.
 
