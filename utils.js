@@ -39,3 +39,14 @@ function zip(arrays) {
 	return arrays.map(function(array){return array[i]})
     });
 }
+
+function enumerate(s, start=0) {
+	/* takes in sequence of k elements and returns a sequence of k pairs.
+	the ith pair is of the form [i+start, sequence[i]]. */
+
+	var to_zip = [];
+	for (var i = start; i < s.length; i++) {
+		to_zip.push(i);
+	}
+	return zip(to_zip, s)
+}
