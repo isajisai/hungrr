@@ -31,11 +31,12 @@ function distance(p1, p2) {
 	return Math.sqrt(x_comp, y_comp);
 }
 
-function map_and_filter(arrays, f) {
+function map_and_filter(arrays, map_f, filter) {
 	var to_return = [];
 	for (int i = 0; i < arrays.length; i++) {
-		if (f(arrays[i])) {
-			to_return.push(arrays[i]);
+		var x = map_f(arrays[i]);
+		if (filter(x)) {
+			to_return.push(map_f(x));
 		}
 	}
 	return to_return;
