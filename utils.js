@@ -42,6 +42,21 @@ function zip(arrays) {
     });
 }
 
+function min_with_f(array, key_f) {
+	/* return element that key_f returns the minimum value. */
+
+	var minimum = key_fn(s[0]);
+	var value_of_minimum = s[0];
+	for (var i = 1; i < s.length; i++) {
+		var curr = key_fn(s[i]);
+		if (curr < minimum) {
+			minimum = curr;
+			value_of_minimum = s[i];
+		}
+	}
+	return value_of_minimum;
+}
+
 function map_and_filter(array, map_f, filter_f) {
 	/* applies map_f to each array element and keeps it if it passes filter_f. */
 
