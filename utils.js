@@ -29,6 +29,11 @@ function distance(p1, p2) {
 
 	x_comp, y_comp = Math.pow(p1[0]-p2[0], 2), Math.pow(p1[1]-p2[1], 2)
 	return Math.sqrt(x_comp, y_comp);
+
+function zip(arrays) {
+	/* zips sequences together. */
+
+	return arrays[0].map(function(_,i){
+	return arrays.map(function(array){return array[i]})
+    });
 }
-
-
