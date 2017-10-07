@@ -57,6 +57,14 @@ function min_with_f(array, key_f) {
 	return value_of_minimum;
 }
 
+function filter(array, filter) {
+	var to_return = [];
+	for (int i = 0; i < array.length; i++) {
+		if (filter(array[i])) to_return.push(array[i]);
+	}
+	return to_return;
+}
+
 function map_and_filter(array, map_f, filter_f) {
 	/* applies map_f to each array element and keeps it if it passes filter_f. */
 
