@@ -8,7 +8,7 @@
 function mean(s) {
 	/* aritmetic mean of the elements of s. */
 
-	var sum = s.reduce(funcation(a, b) { return a + b; }, 0);
+	var sum = s.reduce(function(a, b) { return a + b; }, 0);
 	return sum / s.length;
 }
 
@@ -18,9 +18,17 @@ function sample(s, k) {
 
 	var to_return = [], n = s.length, j;
 	while(n) {
-		j = Math.floor(Math.random() * n--_;
+		j = Math.floor(Math.random() * n--);
 		to_return.push(s.splice(j, 1)[0]);
 	}
 	return to_return.slice(0, k);
 }
+
+function distance(p1, p2) {
+	/* Returns the Euclidean distance of two given two-element pairs. */
+
+	x_comp, y_comp = Math.pow(p1[0]-p2[0], 2), Math.pow(p1[1]-p2[1], 2)
+	return Math.sqrt(x_comp, y_comp);
+}
+
 
