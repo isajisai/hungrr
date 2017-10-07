@@ -31,7 +31,6 @@ function distance(p1, p2) {
 	return Math.sqrt(x_comp, y_comp);
 }
 
-
 // Misc.
 
 function zip(arrays) {
