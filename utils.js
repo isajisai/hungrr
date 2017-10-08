@@ -42,18 +42,33 @@ function zip(arrays) {
 }
 
 function min_with_f(array, key_f) {
-	/* return element that key_f returns the minimum value. */
+	/* return element that key_f returns the minimum value for. */
 
-	var minimum = key_fn(s[0]);
-	var value_of_minimum = s[0];
-	for (var i = 1; i < s.length; i++) {
-		var curr = key_fn(s[i]);
+	var minimum = key_f(array[0]);
+	var value_of_minimum = array[0];
+	for (var i = 1; i < array.length; i++) {
+		var curr = key_f(array[i]);
 		if (curr < minimum) {
 			minimum = curr;
-			value_of_minimum = s[i];
+			value_of_minimum = array[i];
 		}
 	}
 	return value_of_minimum;
+}
+
+function max_with_f(array, key_f) {
+	/* return element that key_f evaluates the maximum value for. */
+
+	var maximum = key_f(array[0]);
+	var value_of_maximum = array[0];
+	for (var i = 1; i < array.length) {
+		var curr = key_f(array[i]);
+		if (curr > maximum) {
+			maximum = curr;
+			value_of_maximum = array[i];
+		}
+	}
+	return value_of_maximum;
 }
 
 function filter(array, filter) {
