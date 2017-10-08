@@ -4,8 +4,11 @@
 ////////////////////
 
 function filter_time(obj_array, max_time) {
-	return filter(obj_array, function(a) {
+	time_filtered = filter(obj_array, function(a) {
 		return a.time < max_time;
+	});
+	return max_with_f(time_filtered, function(a) {
+		return a.rating;
 	});
 }
 
@@ -16,7 +19,18 @@ function filter_rating(obj_array, min_rating) {
 }
 
 function filter_price(obj_array, max_price) {
-	return filter(obj_array, function(a) {
+	price_filtered = return filter(obj_array, function(a) {
 		return a.price < max_price;
 	});
+	return max_with_f(price_filtered, function(a) {
+		return a.rating;
+	});
+}
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+//!!!!!!!!!!!!!!!!!!!!!! ALGO GOES HERE !!!!!!!!!!!!!!!!!!!!!!//
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+
+function deduce(obj_array) {
+
 }
