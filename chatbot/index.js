@@ -19,14 +19,26 @@ app.get('/', function(req, res) {
 })
 
 let token = "EAAEAZAA4KSJYBAMHYhLnqNL2ZBJy0zuhmiZCotkendCro2HF7cD5jpDG2ReM4JCQoZCANRI87NVofVLjysLSi5VHARgJnuEZB1a5QKpv8NoIDloeObRnaAvokVw4AzCzRZCZAM5ovmS0AdmgohrHrxb3SdmkXsNjtGNzwXNtd982AZDZD"
+
+
 // Facebook 
 
+//Setup array to store values
+var values = [];
+
+//loead categories
+import {categories} from "test_cat.js";
+let cat = categories;
+
+//Normal messaging
 app.get('/webhook/', function(req, res) {
 	if (req.query['hub.verify_token'] === "blondiebytes") {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send("Wrong token")
 })
+
+
 
 app.post('/webhook/', function(req, res) {
 	let messaging_events = req.body.entry[0].messaging
@@ -35,11 +47,35 @@ app.post('/webhook/', function(req, res) {
 		let sender = event.sender.id
 		if (event.message && event.message.text) {
 			let text = event.message.text
-			sendText(sender, "Text echo: " + text.substring(0, 100))
+			var contained = false;
+			for (int i = 0; i < cat.length; i++){
+				if (text.includes(cat[i])) {
+					contained = true;
+					values.push(text);
+				}
+			}
+			if (text.includes("minutes")){
+				values.push(text);
+				sendText(sender, "Restaurants that are outside of your time proximity have been filtered out. Do you have any other specifications?")
+			}
+			else if (text.includes("$")){
+				values.push(text);
+				sendText(sender, "Restaurants that are outside of your price range have been filtered out. Do you have any other specifications?")
+			}
+			else if (contained) {
+				sendText(sender, "Restaurants that do not match your category have been filtered out. Do you have any other specifications?")
+			}
+
+			else {
+				sendText(sender, "Cannot update your search. Type help to see a list of keywords that can filter your search.")
+			}
+			
 		}
 	}
 	res.sendStatus(200)
 })
+
+
 
 function sendText(sender, text) {
 	let messageData = {text: text}
