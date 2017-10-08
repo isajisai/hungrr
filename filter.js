@@ -31,8 +31,8 @@ function filter_price(obj_array, max_price) {
 //!!!!!!!!!!!!!!!!!!!!!! ALGO GOES HERE !!!!!!!!!!!!!!!!!!!!!!//
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 
-function deduce(obj_array) {
-	if (obj_array.time > max_time) {
+function deduce(obj) {
+	if (obj > max_time) {
 		return 0;
 	} else {
 		var dist_r = calculate_time(restaurant[time]);
