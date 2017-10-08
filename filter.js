@@ -32,12 +32,12 @@ function filter_price(obj_array, max_price) {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 
 function deduce(obj) {
-	if (obj > max_time) {
+	if (obj.time > max_time) {
 		return 0;
 	} else {
-		var dist_r = calculate_time(restaurant[time]);
-		var rating_r = calculate_rating(restaurant[rating]);
-		var price_r = calculate_price(restaurant[pricing]);
+		var dist_r = calculate_time(obj.time);
+		var rating_r = calculate_rating(obj.rating);
+		var price_r = calculate_price(obj.pricing);
 		return 0.2*dist_r + 0.6*rating_r + 0.2*price_r; 
 	}
 }
@@ -50,7 +50,7 @@ function calculate_time(time) {
 		x = (time - 5)/2;
 		return Math.sqrt(-x + 5)* 0.3 / (Math.sqrt(5) - 1.5);
 	} else if (time < 20) {
-		x = time * Math.pi/20
+		x = time * Math.pi/20;
 		return Math.sin(x + math.pi/2) * 0.4 + 0.3;
 	} else if (time < 30) {
 		x = x = (time - 20) / 5;
