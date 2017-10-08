@@ -31,7 +31,6 @@ function distance(p1, p2) {
 	return Math.sqrt(x_comp, y_comp);
 }
 
-
 // Misc.
 
 function zip(arrays) {
@@ -55,6 +54,14 @@ function min_with_f(array, key_f) {
 		}
 	}
 	return value_of_minimum;
+}
+
+function filter(array, filter) {
+	var to_return = [];
+	for (int i = 0; i < array.length; i++) {
+		if (filter(array[i])) to_return.push(array[i]);
+	}
+	return to_return;
 }
 
 function map_and_filter(array, map_f, filter_f) {
