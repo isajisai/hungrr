@@ -32,5 +32,67 @@ function filter_price(obj_array, max_price) {
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
 
 function deduce(obj_array) {
+	if (obj_array.time > max_time) {
+		return 0;
+	} else {
+		var dist_r = calculate_time(restaurant[time]);
+		var rating_r = calculate_rating(restaurant[rating]);
+		var price_r = calculate_price(restaurant[pricing]);
+		return 0.2*dist_r + 0.6*rating_r + 0.2*price_r; 
+	}
+}
 
+function calculate_time(time) {
+	var x;
+	if (time <= 5) {
+		return 1;
+	} else if (time < 10) {
+		x = (time - 5)/2;
+		return Math.sqrt(-x + 5)* 0.3 / (Math.sqrt(5) - 1.5);
+	} else if (time < 20) {
+		x = time * Math.pi/20
+		return Math.sin(x + math.pi/2) * 0.4 + 0.3;
+	} else if (time < 30) {
+		x = x = (time - 20) / 5;
+		return (-x**3 + 8)*3/80;
+	} else {
+		return 0;
+	}
+}
+
+function calculate_rating(rating) {
+	var sub = 5 - rating;
+	if (rating > 4.5) {
+		return 1;
+	}
+	else if (rating >= 4) {
+		x = sub*Math.pi;
+		return Math.sin(x)*3/20 + 0.85;
+	}
+	else if (rating > 3) {
+		x = (sub - 1)*2;
+		return (-x**3 + 8)*11/160;
+	}
+	else if (rating > 2) {
+		x = (sub - 2)*2;
+		return (-(x - 2)**3 + 8)*3/80;
+	}
+	else if (rating >= 1) {
+		x = (sub - 3);
+		return (1 - x)*3/20;
+	} else {
+		return 0;
+	}
+}
+
+function calculate_price(price) {
+	if (price == 3) {
+		return 0.2;
+	} else if (price == 2) {
+		return 0.7;
+	} else if (price == 1) {
+		return 1;
+	} else {
+		return 0;
+	}
 }
