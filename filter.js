@@ -54,7 +54,7 @@ function calculate_time(time) {
 		return Math.sin(x + math.pi/2) * 0.4 + 0.3;
 	} else if (time < 30) {
 		x = x = (time - 20) / 5;
-		return (-x**3 + 8)*3/80;
+		return (-Math.pow(x,3) + 8)*3/80;
 	} else {
 		return 0;
 	}
@@ -71,11 +71,11 @@ function calculate_rating(rating) {
 	}
 	else if (rating > 3) {
 		x = (sub - 1)*2;
-		return (-x**3 + 8)*11/160;
+		return (-Math.pow(x,3) + 8)*11/160;
 	}
 	else if (rating > 2) {
 		x = (sub - 2)*2;
-		return (-(x - 2)**3 + 8)*3/80;
+		return (-Math.pow((x - 2),3) + 8)*3/80;
 	}
 	else if (rating >= 1) {
 		x = (sub - 3);
