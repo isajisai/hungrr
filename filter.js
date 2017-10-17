@@ -51,7 +51,7 @@ function calculate_time(time) {
 		return Math.sqrt(-x + 5)* 0.3 / (Math.sqrt(5) - 1.5);
 	} else if (time < 20) {
 		x = time * Math.pi/20;
-		return Math.sin(x + math.pi/2) * 0.4 + 0.3;
+		return Math.sin(x + Math.pi/2) * 0.4 + 0.3;
 	} else if (time < 30) {
 		x = x = (time - 20) / 5;
 		return (-Math.pow(x,3) + 8)*3/80;
