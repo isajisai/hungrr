@@ -51,8 +51,13 @@ function calculate_time(time) {
 		x = (time - 5)/2;
 		return Math.sqrt(x + 5)* 0.3 / (Math.sqrt(5) - 1.5);
 	} else if (time < 20) {
+<<<<<<< HEAD:filter.js
+		x = time * Math.pi/20;
+		return Math.sin(x + Math.pi/2) * 0.4 + 0.3;
+=======
 		x = time * Math.PI/20;
 		return Math.sin(x + Math.PI/2) * 0.4 + 0.3;
+>>>>>>> ab5b57031480b048674657b5864a780382106141:web/filter.js
 	} else if (time < 30) {
 		x = x = (time - 20) / 5;
 		return (-Math.pow(x,3) + 8)*3/80;
